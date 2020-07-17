@@ -15,14 +15,12 @@ public class ParkingLotTest {
 
     @Test
     public void givenParkingLotSystem_WhenParkingAvailable_ShouldReturnTrue() {
-        //ParkingLotSystem parkingLotSystem = new ParkingLotSystem();
         boolean parkingStatus = parkingLotSystem.parkingStatus(60);
         Assert.assertEquals(true, parkingStatus);
     }
 
     @Test
     public void givenParkingLotSystem_WhenParkingNotAvailable_ShouldReturnFalse() {
-        //ParkingLotSystem parkingLotSystem = new ParkingLotSystem();
         boolean parkingStatus = parkingLotSystem.parkingStatus(100);
         Assert.assertEquals(false, parkingStatus);
     }
@@ -34,5 +32,14 @@ public class ParkingLotTest {
         int parkingLotNumber = parkingLotSystem.customerInvoice(123);
         boolean result = parkingLotSystem.unParkingStatus(customerTokenNumber, parkingLotNumber);
         Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenParkingLotSystem_WhenCustomerTokenNumberNotEqualsParkingLotNumber_ShouldReturnFalse() {
+        Customer customer = new Customer(123);
+        int customerTokenNumber = customer.tokenNumber;
+        int parkingLotNumber = parkingLotSystem.customerInvoice(121);
+        boolean result = parkingLotSystem.unParkingStatus(customerTokenNumber, parkingLotNumber);
+        Assert.assertEquals(false, result);
     }
 }
