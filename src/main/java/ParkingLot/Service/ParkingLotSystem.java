@@ -1,14 +1,23 @@
 package ParkingLot.Service;
 
+import ParkingLot.Model.Customer;
+
 public class ParkingLotSystem {
     public int numberOfCarsParked;
+    public int parkingLotNumber;
 
-    public ParkingLotSystem(int numberOfCarsParked) {
+    public boolean parkingStatus(int numberOfCarsParked) {
         this.numberOfCarsParked = numberOfCarsParked;
+        if (numberOfCarsParked < 100) return true;
+        return false;
     }
 
-    public boolean parkingStatus() {
-        if (numberOfCarsParked < 100) return true;
+    public int customerInvoice(int parkingLotNumber) {
+        return parkingLotNumber;
+    }
+
+    public boolean unParkingStatus(int a, int b) {
+        if (a == b) return true;
         return false;
     }
 }
