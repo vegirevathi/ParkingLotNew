@@ -10,4 +10,11 @@ public class ParkingLotTest {
         boolean parkingStatus = parkingLotSystem.parkingStatus();
         Assert.assertEquals(true, parkingStatus);
     }
+
+    @Test
+    public void givenParkingLotSystem_WhenParkingNotAvailable_ShouldReturnFalse() {
+        ParkingLotSystem parkingLotSystem = new ParkingLotSystem(100);
+        boolean parkingStatus = parkingLotSystem.parkingStatus();
+        Assert.assertEquals(false, parkingStatus);
+    }
 }
